@@ -2,13 +2,13 @@ const mongoose = require('mongoose');
 
 const restaurantSchema = new mongoose.Schema({
     address: {
-        //required: true,        
+                
         building: {
-            //required: true,
+            
             type: String
         },
         street: {
-            //required: true,
+            
             type: String            
         }                
     },
@@ -24,7 +24,7 @@ const restaurantSchema = new mongoose.Schema({
             _id: false
         }],
         default: undefined
-        //required: true
+        
     },
     name: {
         required: true,
@@ -39,16 +39,3 @@ const restaurantSchema = new mongoose.Schema({
 },{versionKey: false})
 
 module.exports = mongoose.model('Data', restaurantSchema)
-
-/*const dataSchema = new mongoose.Schema({
-    name: {
-        required: true,
-        type: String
-    },
-    age: {
-        required: true,
-        type: Number
-    }
-})
-
-module.exports = mongoose.model('Data', dataSchema)*/

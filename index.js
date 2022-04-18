@@ -1,17 +1,15 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const swaggerJSDoc = require('swagger-jsdoc');
+const swaggerUI = require('swagger-ui-express');
+const swaggerFile = require('./swagger_output.json')
 
 
 //Turning Express into constant "app"
 const app = express();
 app.use(bodyParser.json());
 
-//Middleware for GET pagination
-app.get("/", paginate(), async (req, res) => {
-    res.json(res.paginate);
-  });
-app.use(paginate);
 
 //Importing .env and storing connection string in 'mongoString'
 require('dotenv').config();
@@ -40,28 +38,10 @@ app.listen(3000, () => {
     console.log(`Server Started at ${3000}`)
 })
 
-//Server-side Pagination Function
-function paginate() {
-    return async (req, res, next) => {
-      
-      const page = parseInt(req.query.page);
-      const limit = parseInt(req.query.limit);
-      const skipIndex = (page - 1) * limit;
-      const results = {};
-  
-      try {
-        results.results = await User.find()
-          .sort({ _id: 1 })          
-          .skip(skipIndex)
-          .limit(limit)
-          .exec();
-        res.paginatedResults = results;
-        next();
-      } catch (e) {
-        res.status(500).json({ message: "Error Occured" });
-      }
-    };
-  }
+//Middleware for Swagger GUI
+app.use('/doc', swaggerUI.serve, swaggerUI.setup(swaggerFile))
+require('./routes/routes.js')
+console.log("Swagger GUI Middleware");
 
 
 

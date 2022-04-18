@@ -1,0 +1,328 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Restaurant API",
+    "description": "Documentation for Restaurant API Getters"
+  },
+  "host": "localhost:3000",
+  "basePath": "/api",
+  "tags": [
+    "Get Operations"
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "securityDefinitions": {
+    "api_key": {
+      "type": "apiKey",
+      "name": "api_key",
+      "in": "header"
+    }
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/getAll": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/getMongoID/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/getName/{name}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/getCuisine/{cuisine}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "cuisine",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/getResID/{resid}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "resid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/getStreet/{street}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "street",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/getGrade/{grade}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "grade",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/getMulti": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "grade",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "street",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "cuisine",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "page": {
+      "type": "object",
+      "properties": {
+        "Page_Number": {
+          "type": "number",
+          "example": 1
+        }
+      }
+    },
+    "limit": {
+      "type": "object",
+      "properties": {
+        "Number_Of_Entries": {
+          "type": "number",
+          "example": 10
+        }
+      }
+    },
+    "name": {
+      "type": "object",
+      "properties": {
+        "Restauraunt_Name": {
+          "type": "string",
+          "example": "Riviera Caterer"
+        }
+      }
+    },
+    "cuisine": {
+      "type": "object",
+      "properties": {
+        "Cuisine": {
+          "type": "string",
+          "example": "American"
+        }
+      }
+    },
+    "resid": {
+      "type": "object",
+      "properties": {
+        "Restaurant_ID": {
+          "type": "string",
+          "example": "40356018"
+        }
+      }
+    },
+    "street": {
+      "type": "object",
+      "properties": {
+        "Street": {
+          "type": "string",
+          "example": "Brunos On The Boulevard"
+        }
+      }
+    },
+    "grade": {
+      "type": "object",
+      "properties": {
+        "Grade": {
+          "type": "string",
+          "example": "A"
+        }
+      }
+    }
+  }
+}
